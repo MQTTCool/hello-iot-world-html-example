@@ -1,0 +1,71 @@
+/*
+ * LIGHTSTREAMER - www.lightstreamer.com
+ * Hello IoT World Demo
+ *
+ *  Copyright (c) Lightstreamer Srl
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.note { 
+  font-family: Verdana, Arial, Helvetica, sans-serif; 
+  font-size: 7pt;
+  color: #000000; 
+  background: #ffffff;
+  font-weight: normal; 
+  text-align: left; 
+}
+
+.cursor {
+  top: -5px;
+  left: 0;
+  width: 11px;
+  height: 21px;
+  background: transparent url(../images/handle.png);
+  overflow: visible;
+}
+
+.slideLine {
+  width: 200px;
+  background-color: #bdbdbd;
+  height: 10px;
+  position: relative;
+  float: left;
+}
+
+.sliderContainer {
+  border-style: solid;
+  border-width: 0px;
+  margin-top: 40px;
+}
+
+#bandwidthSelector {
+  margin-bottom: 10px
+}
+
+#gaugesBoxes {
+  height: 300px;
+}
+
+.gaugeBox {
+  width: 200px;
+  height: 280px;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#wrap {
+  width: 425px;
+  margin: 0 auto;
+}
