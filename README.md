@@ -1,4 +1,4 @@
-# MQTT Extender - "Hello IoT World" Tutorial - HTML Client 
+# MQTT Extender - Hello IoT World Demo - HTML Client 
 
 <!-- START DESCRIPTION mqttextender-example-hello_iot_world-client-javascript -->
 
@@ -52,11 +52,11 @@ with a local version and/or to upgrade its version.
 * Deploy this demo on the MQTT Extender (used as Web server) or in any external
 Web server. If you choose the former, create a folder with name such as
 `HelloIoTWorld` under the `<MQTTEXTENDER_HOME>/pages`, and copy there the
-contents of the `src` folder of this project.
+contents of the `src/web` folder of this project.
 
 ## Configure
 The demo assumes that MQTT Extender is launched from localhost, but if you need
-to target a different server, search in `js/index.js` this line:
+to target a different server, search in `web/js/index.js` this line:
 ```js
 MQTTExtender.connect('http://localhost:8080', {
 ``` 
@@ -65,7 +65,7 @@ and change it accordingly.
 Further, the demo will look for the **mosquitto** alias, which is predefined in
 the default MQTT Extender configuration. Once more, if you need to target a
 different MQTT broker, and provided that relative connection parameters are
-already defined as shown above, modify the following line in `js/index.js`:
+already defined as shown above, modify the following line in `web/js/index.js`:
 
 ```js
   mqttClient = mqttExtenderSession.createClient('mosquitto');
