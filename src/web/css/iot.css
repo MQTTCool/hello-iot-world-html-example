@@ -49,23 +49,45 @@
   margin-top: 40px;
 }
 
+#header {
+  height: 70px;
+}
+
+#logo {
+  background-image: url(../images/logo.png);
+  height: 60px;
+  width: 231px;
+  float: left;
+}
+
 #bandwidthSelector {
-  margin-bottom: 10px
+  margin-bottom: 10px;  
+  float: right;
 }
 
 #gaugesBoxes {
   height: 300px;
+  padding-top: 40px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .gaugeBox {
   width: 200px;
   height: 280px;
-  float: left;
   margin-left: 5px;
   margin-right: 5px;
 }
 
+#speedGaugeBox {
+  float: left;
+}
+
+#rpmGaugeBox {
+  float: right;
+}
+
 #wrap {
-  width: 425px;
+  width: 530px;
   margin: 0 auto;
 }
