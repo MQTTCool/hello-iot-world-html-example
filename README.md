@@ -91,9 +91,10 @@ contents of the `src/web` folder of this project.
 * If required, install Node.js
 * From `src/feed` folder, get the [MQTT.js](https://github.com/mqttjs/MQTT.js)
 client library, which is required by the feed simulator application:
-  ```
-  npm install mqtt
-  ```
+
+ ```
+ npm install mqtt
+ ```
 
 ## Configure
 The demo assumes that MQTT Extender is launched from localhost, but if you need
