@@ -32,11 +32,11 @@ coming from the broker and directed to the client.
 
 Use the Max Bandwidth slider to dynamically change the maximum bandwidth granted
 for the current session. Upon moving the slider, the new bandwidth will be
-notified by the client to the the MQTT Extender, whih in turn will change the
-update frequency on the fly, to respect the bandwidth limit. You can see that
-with a bandwidth as ridiculous as 0.5 kilobits per seconds, MQTT Extender is
-still able to deliver updates to the page, thanks to the very optimized network
-protocol used.
+notified by the client to the MQTT Extender, whih in turn will change the update
+frequency on the fly, to respect the bandwidth limit. You can see that with a
+bandwidth as ridiculous as 0.5 kilobits per seconds, MQTT Extender is still able
+to deliver updates to the page, thanks to the very optimized network protocol
+used.
 
 Use the Max Frequency slider to dynamically change the maximum update rate of 
 incoming messages relative to a single subscription. The client will renew the
@@ -90,7 +90,7 @@ Web server. If you choose the former, create a folder with name such as
 contents of the `src/web` folder of this project.
 * If required, install Node.js
 * From `src/feed` folder, get the [MQTT.js](https://github.com/mqttjs/MQTT.js)
-client library, which is required by the feed simulator application;
+client library, which is required by the feed simulator application:
   ```
   npm install mqtt
   ```
@@ -125,7 +125,7 @@ telemetry metrics:
 node generate.js
 ```
 
-and immediately grapichal gauges update according to the received real-time. 
+and immediately the gauges reflect updates according to the received real-time
 metrics.
 
 ## See Also
