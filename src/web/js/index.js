@@ -66,28 +66,25 @@ function initBandwidthSlider() {
     values.push(x);
   }
 
+  // The span id to be updated
+  var spanId = "nowBandwidth";
+
   var bwslider = new Control.Slider('handleSelectBandwidth', 'selectBandwidth', {
     sliderValue: maxBandVal, values: values, step: 0.5, increment: 0.5, range: $R(0.5, maxBandVal),
 
     onSlide: function (v) {
-      if (v == maxBandVal) {
-        document.getElementById("nowBandwidth").innerHTML = "unlimited";
-        return;
-      }
-
-      var val = v.toFixed(1);
-      document.getElementById("nowBandwidth").innerHTML = val;
+      updateSlider(v, maxBandVal, spanId);
     },
 
     onChange: function (v) {
-      var val = Number(v.toFixed(1));
+      var val = updateSlider(v, maxBandVal, spanId);
       if (lightStreamerClient) {
         // If max bandwidth is selected, pass the "unlimited" value.
-        if (v == maxBandVal) {
-          v = "unlimited";
+        if (val == maxBandVal) {
+          val = "unlimited";
         }
         // Update the max bandwidth through the LightStreamerClient instance.
-        lightStreamerClient.connectionOptions.setMaxBandwidth(v);
+        lightStreamerClient.connectionOptions.setMaxBandwidth(val);
       }
     }
   });
@@ -109,19 +106,18 @@ function initFreqSlider(which, topic) {
     freqValues.push(x);
   }
 
+  // The span id to be updated.
+  var spanId = "now" + which + "Frequency";
+
   var freqSlider = new Control.Slider('handleSelect' + which + 'Frequency', 'select' + which + 'Frequency', {
     sliderValue: maxFreqVal, values: freqValues, step: 0.1, increment: 0.1, range: $R(0.1, maxFreqVal),
 
     onSlide: function (v) {
-      var val = v.toFixed(1);
-      if (v == maxFreqVal) {
-        val = "unlimited";
-      }
-      document.getElementById("now" + which + "Frequency").innerHTML = val;
+      updateSlider(v, maxFreqVal, spanId);
     },
 
     onChange: function (v) {
-      var val = Number(v.toFixed(1));
+      var val = updateSlider(v, maxFreqVal, spanId);
       if (lightStreamerClient) {
         // Prepare basic subscriptions options.
         var subOptions = {};
@@ -136,6 +132,9 @@ function initFreqSlider(which, topic) {
   });
 }
 
+/**
+ * Connects to the MQT Extender and manages subscriptions to telemetry topics.
+ */
 function startMqttConnection(MQTTExtender) {
   // Connect to the MQTT Extender.
   MQTTExtender.connect('http://localhost:8080', {
@@ -202,4 +201,22 @@ function startMqttConnection(MQTTExtender) {
       };
     }
   });
+}
+
+/**
+ * Updates the specified span with current slider value.
+ * 
+ * @param {number} currValue - The current slider value.
+ * @param {number} maxValue - The max allowed value.
+ * @param {number} id - The id of span to be updated.
+ * @return {number} the rounde slider value
+ */
+function updateSlider(currValue, maxValue, id) {
+  var val = Math.round(currValue * 100) / 100;
+  var valStr = String(val);
+  if (val == maxValue) {
+    valStr = "unlimited";
+  }
+  document.getElementById(id).innerHTML = valStr;
+  return val;
 }
