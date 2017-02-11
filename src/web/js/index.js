@@ -209,7 +209,7 @@ function startMqttConnection(MQTTExtender) {
  * @param {number} currValue - The current slider value.
  * @param {number} maxValue - The max allowed value.
  * @param {number} id - The id of span to be updated.
- * @return {number} the rounde slider value
+ * @return {number} the rounded slider value
  */
 function updateSlider(currValue, maxValue, id) {
   var val = Math.round(currValue * 100) / 100;
