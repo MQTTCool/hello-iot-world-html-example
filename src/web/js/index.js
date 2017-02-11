@@ -177,12 +177,12 @@ function startMqttConnection(MQTTExtender) {
 
       // Callback invoked upon receiving a message.
       mqttClient.onMessageArrived = function (message) {
-        // Get the message topic to retrieve the target gauge for 
+        // Get the message topic to retrieve the pertinent gauge.
         var dest = message.destinationName;
         var tok = dest.split('/', 2);
         var gauge = tok[1];
 
-        // Transfomr metric to int values, as required by the Google Chart gauges.
+        // Transfomr metric to int values, as required by the Google Chart Tools.
         var metric = parseInt(parseInt(message.payloadString));
         // Update the target gauge.
         switch (gauge) {
