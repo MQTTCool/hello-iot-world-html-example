@@ -62,7 +62,7 @@ Extender, follows these steps.
 whatever MQTT broker you prefer, or may also use one of the avaible public
 broker (an update-to-date list is maintaned at
 [https://github.com/mqtt/mqtt.github.io/wiki/public_brokers]()).
-* Configure and launch a MQTT Extender instance. Please refer to Lightstreamer
+* Configure the MQTT Extender instance. Please refer to Lightstreamer
 web site [download page](http://download.lightstreamer.com/) to find the MQTT
 Extender download package. MQTT Extender comes with a set of predefined
 configurations for connecting with local MQTT server instances, as well as with
@@ -80,7 +80,7 @@ to configure broker connection parameters):
   <param name="mybroker.keep_alive">20</param>
   ...
   ```
-
+* Launch the MQTT Extender.
 * Download this project.
 * RequireJS is currently hot-linked in the html page: you may want to replace it
 with a local version and/or to upgrade its version.
@@ -115,8 +115,8 @@ already defined as shown above, modify the following line in `web/js/index.js`:
 ```js
   mqttClient = mqttExtenderSession.createClient('mosquitto');
 ```
-and change it by replacing **mosquitto** with new alias mapping the MQTT broker
-you are going to use.
+and change it by replacing **mosquitto** with new alias that maps the MQTT
+broker you are going to use.
 
 ## Launch
 
