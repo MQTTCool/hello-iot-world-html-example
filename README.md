@@ -1,14 +1,15 @@
-# MQTT Extender - Hello IoT World Demo - HTML Client 
+# MQTT Extender - Hello IoT World Demo - HTML Client
 
 <!-- START DESCRIPTION mqttextender-example-hello_iot_world-client-javascript -->
 
-The **Hello IoT World Demo** is a simple real-time telemetry application based 
+The **Hello IoT World Demo** is a simple real-time telemetry application based
 on MQTT Extender.
 
 ![screenshot](screen-large.png)
 ###
 
 ## Details
+
 The **Hello IoT World Demo** uses the *MQTT Extender Web Client API* to show how
 MQTT Extender can be used to send real-time telemetry data through the Web and,
 very important, how incoming update flow can be further manipulated in terms of
@@ -38,7 +39,7 @@ bandwidth as ridiculous as 0.5 kilobits per seconds, MQTT Extender is still able
 to deliver updates to the page, thanks to the very optimized network protocol
 used.
 
-Use the Max Frequency slider to dynamically change the maximum update rate of 
+Use the Max Frequency slider to dynamically change the maximum update rate of
 incoming messages relative to a single subscription. The client will renew the
 subscription asking for the new frequency limit and the MQTT Extender will
 change the update frequency on the fly, to respect the frequency limit.
@@ -53,16 +54,17 @@ when a subscription has a chance to be updated (based on a round-robin
 algorithm), it will receive the very latest available message, not an old one.
 
 ## Install
+
 If you want to install a version of this demo pointing to your local MQTT
 Extender, follows these steps.
 
-* As prerequiste, this demo needs a MQTT infrastructure to run. You can choose 
-whatever MQTT broker you prefer, or may also use one of the avaible public 
-broker (an update-to-date list is maintaned at 
+* As prerequiste, this demo needs a MQTT infrastructure to run. You can choose
+whatever MQTT broker you prefer, or may also use one of the avaible public
+broker (an update-to-date list is maintaned at
 [https://github.com/mqtt/mqtt.github.io/wiki/public_brokers]()).
 * Configure and launch a MQTT Extender instance. Please refer to Lightstreamer
 web site [download page](http://download.lightstreamer.com/) to find the MQTT
-Extender download package. MQTT Extender comes with a set of predefined 
+Extender download package. MQTT Extender comes with a set of predefined
 configurations for connecting with local MQTT server instances, as well as with
 the most common publicly accessible brokers. If you want to provide a new custom
 configuration, open the `mqtt_master_connector_conf.xml` file located under
@@ -71,7 +73,7 @@ configuration, open the `mqtt_master_connector_conf.xml` file located under
 to configure broker connection parameters):
   ```xml
   ...
-  <!-- MQTT broker connection parameters for a local instance 
+  <!-- MQTT broker connection parameters for a local instance
   listening on port 1883, aliased by "mybroker". -->
   <param name="mybroker.server_address">tcp://localhost:1883</param>
   <param name="mybroker.connection_timeout">5</param>
@@ -97,11 +99,12 @@ client library, which is required by the feed simulator application:
  ```
 
 ## Configure
+
 The demo assumes that MQTT Extender is launched from localhost, but if you need
 to target a different server, search in `web/js/index.js` this line:
 ```js
 MQTTExtender.connect('http://localhost:8080', {
-``` 
+```
 and change it accordingly.
 
 Further, the demo will look for the **mosquitto** alias, which is predefined in
@@ -116,6 +119,7 @@ and change it by replacing **mosquitto** with new alias mapping the MQTT broker
 you are going to use.
 
 ## Launch
+
 Open your browser and point it to [http://localhost:8080/Hello_IoT_World](), or
 to the address according to the host and/or the name of the folder where you
 deployed the project.
@@ -134,11 +138,11 @@ metrics.
 <!-- START RELATED_ENTRIES -->
 
 * [MQTT Extender - Basic Chat Demo - HTL Clienet](https://github.com/Lightstreamer/MQTTExtender-example-Chat-client-javascript)
- 
+
 ### Related Projects
 
 * [Lightstreamer - Race Telemetry Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-RaceTelemetry-client-javascript)
- 
+
 <!-- END RELATED_ENTRIES -->
 
 ## MQTT Extender Compatibility Notes
