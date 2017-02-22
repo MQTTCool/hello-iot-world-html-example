@@ -6,7 +6,6 @@ The **Hello IoT World Demo** is a simple real-time telemetry application based
 on MQTT Extender.
 
 ![screenshot](screen-large.png)
-###
 
 ## Details
 
