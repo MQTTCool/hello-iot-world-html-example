@@ -1,4 +1,7 @@
 /*
+  MQTT.Cool - http://MQTT.Cool
+  Hello IoT World Demo
+
   Copyright (c) Lightstreamer Srl
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +17,7 @@
   limitations under the License.
 */
 
-require(["MQTTExtender"], function (MQTTExtender) {
+require(["MQTTCool"], function (MQTTCool) {
   // Load package for gauges.
   google.charts.load('current', { 'packages': ['gauge'] });
 
@@ -59,8 +62,8 @@ require(["MQTTExtender"], function (MQTTExtender) {
     rpmData.setValue(0, 1, 0);
     rpmChart.draw(rpmData, rpmOptions);
 
-    // Connect to the MQTT Extender.
-    startMqttConnection(MQTTExtender);
+    // Connect to MQTT.Cool.
+    startMqttConnection(MQTTCool);
   });
 });
 
@@ -103,7 +106,7 @@ function initBandwidthSlider() {
 
 /**
  * Initialize a Frequency slider
- * 
+ *
  * @param {string} which - The name of the slider to initialize.
  * @param {string} topic - The topic to re-susbcribe to upon changing.
  */
@@ -146,15 +149,15 @@ function initFreqSlider(which, topic) {
 }
 
 /**
- * Connects to the MQT Extender and manages subscriptions to telemetry topics.
+ * Connects to MQTT.Cool and manages subscriptions to telemetry topics.
  */
-function startMqttConnection(MQTTExtender) {
-  // Connect to the MQTT Extender.
-  MQTTExtender.connect('http://localhost:8080', {
+function startMqttConnection(MQTTCool) {
+  // Connect to the MQTT.Cool server.
+  MQTTCool.connect('http://localhost:8080', {
 
     onLsClient: function (lsClient) {
-      // Save the reference to the LightStreamerClient instance provided by
-      // the library upon successful connection to the MQTT Extender, in order
+      // Save the reference to the LightstreamerClient instance provided by
+      // the library upon successful connection to the MQTT.Cool, in order
       // to be used later for updating the max bandwidth.
       lightStreamerClient = lsClient;
     },
@@ -165,7 +168,7 @@ function startMqttConnection(MQTTExtender) {
 
     onConnectionSuccess: function (mqttExtenderSession) {
       // Get a client instance, which will connect to the MQTT broker mapped by
-      // the alias "mosquitto". The instance will also be used later to 
+      // the alias "mosquitto". The instance will also be used later to
       // re-subscribe for updating the frequency update.
       mqttClient = mqttExtenderSession.createClient('mosquitto');
 
@@ -194,7 +197,7 @@ function startMqttConnection(MQTTExtender) {
         var tok = dest.split('/', 2);
         var gauge = tok[1];
 
-        // Transfomr metric to int values, as required by the Google Chart Tools.
+        // Transform metric to int values, as required by the Google Chart Tools.
         var metric = parseInt(parseInt(message.payloadString));
 
         // Update the target gauge.
@@ -219,7 +222,7 @@ function startMqttConnection(MQTTExtender) {
 
 /**
  * Updates the specified span with current slider value.
- * 
+ *
  * @param {number} currValue - The current slider value.
  * @param {number} maxValue - The max allowed value.
  * @param {number} id - The id of span to be updated.
