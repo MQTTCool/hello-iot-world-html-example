@@ -1,8 +1,8 @@
 /*
- * LIGHTSTREAMER - www.lightstreamer.com
+ * MQTT.Cool - http://MQTT.Cool
  * Hello IoT World Demo
  *
- *  Copyright (c) Lightstreamer Srl
+ * Copyright (c) Lightstreamer Srl
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,13 +17,13 @@
  * limitations under the License.
  */
 
-.note { 
-  font-family: Verdana, Arial, Helvetica, sans-serif; 
+.note {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 7pt;
-  color: #000000; 
+  color: #000000;
   background: #ffffff;
-  font-weight: normal; 
-  text-align: left; 
+  font-weight: normal;
+  text-align: left;
 }
 
 .cursor {
@@ -61,7 +61,7 @@
 }
 
 #bandwidthSelector {
-  margin-bottom: 10px;  
+  margin-bottom: 10px;
   float: right;
 }
 
