@@ -86,7 +86,7 @@ with a local version and/or to upgrade its version.
 with a local version and/or to upgrade its version.
 * Deploy this demo on MQTT.Cool (used as Web server) or in any external Web
 server. If you choose the former, create a folder with name such as
-`Hello_Io_TWorld` under the `<MQTT.COOL_HOME>/pages`, and copy there the
+`Hello_IoT_World` under the `<MQTT.COOL_HOME>/pages`, and copy there the
 contents of the `src/web` folder of this project.
 * If required, install Node.js
 * From `src/feed` folder, get the [MQTT.js](https://github.com/mqttjs/MQTT.js)
