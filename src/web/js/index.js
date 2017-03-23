@@ -1,4 +1,7 @@
 /*
+  MQTT.Cool - http://MQTT.Cool
+  Hello IoT World Demo
+
   Copyright (c) Lightstreamer Srl
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,11 +23,11 @@ var rpmData, rpmChart, rpmOptions;
 var mqttClient;
 
 requirejs.config({
-  // Set the MQTT Extender Web Client SDK as dependency to be laoded.
-  deps: ['js/lib/lightstreamer-mqtt.js'],
+  // Set the MQTT.Cool Web Client SDK as dependency to be loaded.
+  deps: ['js/lib/mqtt.cool.js'],
   callback: function () {
     // Load the entry point for the Hello IoT World application, after
-    // dependences have been loaded.
+    // dependencies have been loaded.
     require(['app/Main']);
   }
 });
