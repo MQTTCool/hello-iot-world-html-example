@@ -1,22 +1,40 @@
+/*
+  MQTT.Cool - http://MQTT.Cool
+  Hello IoT World Demo
+
+  Copyright (c) Lightstreamer Srl
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*/
 var mqtt = require('mqtt')
 
 // Connect to the MQTT broker listening at localhost on port 1883.
 var client = mqtt.connect('mqtt://localhost:1883')
 
-// Upon successul connection, start simulation.
+// Upon successful connection, start simulation.
 client.on('connect', function () {
   var tick = 100; // Tick interval in ms.
   var startTimeMillis = Date.now(); // Take current timestamp in ms.
   var totalTimeSec = 0; // Total time in seconds.
   var lastTimeMills = startTimeMillis; // Used to save last timestamp.
 
-  var limit = 135; // Speed limit to determine speed varation range.
-  var baseSpeed = 215; // Base speed limit to determine speed varation range.
+  var limit = 135; // Speed limit to determine speed variation range.
+  var baseSpeed = 215; // Base speed limit to determine speed variation range.
   var lastSpeedKmH = 130; // Initial simulated speed in Km/h, also used to save last determined speed
 
   var totalDistanceMeter = 0; // Total distance covered in meters.
 
-  // Fixed thresholds to determine RPM calcuation.
+  // Fixed thresholds to determine RPM calculation.
   var gearThresholds = [90, 150, 220, 300, 320];
   var gearRatios = [250, 400, 300, 250, 1000, 660];
   var baseRPM = 2000;
@@ -57,7 +75,7 @@ client.on('connect', function () {
     // Accumulate total time, actually not used.
     totalTimeSec = totalTimeSec + deltaTimeMillis / 1000;
 
-    // Calculate distance convered since last invocation.
+    // Calculate distance covered since last invocation.
     deltaDistanceMeter = speedKmH * deltaTimeMillis / 3600;
     // Accumulate total distance covered, actually not used.
     totalDistanceMeter = totalDistanceMeter + deltaDistanceMeter;
