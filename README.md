@@ -19,7 +19,7 @@ pertinent graphical gauge.
 
 Real-time telemetry updates are delivered by a random feed simulator, which is a
 simple Node.js application that connects to a MQTT broker, generates simulated
-data and publishes it to the target topics at a fixed interval (100 ms).
+data and publishes them to the target topics at a fixed interval (100 ms).
 
 The demo shows how MQTT.Cool enables an *end-to-end* connection between the Web
 page and the MQTT broker, as it takes the role of real MQTT server proxy by
