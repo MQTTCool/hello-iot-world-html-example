@@ -1,5 +1,5 @@
 /*
-  MQTT.Cool - http://MQTT.Cool
+  MQTT.cool - http://www.lightstreamer.com
   Hello IoT World Demo
 
   Copyright (c) Lightstreamer Srl
@@ -62,7 +62,7 @@ require(["MQTTCool"], function (MQTTCool) {
     rpmData.setValue(0, 1, 0);
     rpmChart.draw(rpmData, rpmOptions);
 
-    // Connect to MQTT.Cool.
+    // Connect to MQTT.cool.
     startMqttConnection(MQTTCool);
   });
 });
@@ -149,16 +149,16 @@ function initFreqSlider(which, topic) {
 }
 
 /**
- * Connects to MQTT.Cool and manages subscriptions to telemetry topics.
+ * Connects to MQTT.cool and manages subscriptions to telemetry topics.
  */
 function startMqttConnection(MQTTCool) {
-  // Connect to the MQTT.Cool server.
+  // Connect to the MQTT.cool server.
   MQTTCool.connect('http://localhost:8080', {
 
     onLsClient: function (lsClient) {
       // Save the reference to the LightstreamerClient instance provided by
-      // the library upon successful connection to the MQTT.Cool, in order
-      // to be used later for updating the max bandwidth.
+      // the library upon successful connection to MQTT.cool, in order to be
+      // used later for updating the max bandwidth.
       lightStreamerClient = lsClient;
     },
 

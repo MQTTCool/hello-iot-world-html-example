@@ -1,5 +1,5 @@
 /*
-  MQTT.Cool - http://MQTT.Cool
+  MQTT.cool - http://www.lightstreamer.com
   Hello IoT World Demo
 
   Copyright (c) Lightstreamer Srl
@@ -23,7 +23,7 @@ var rpmData, rpmChart, rpmOptions;
 var mqttClient;
 
 requirejs.config({
-  // Set the MQTT.Cool Web Client SDK as dependency to be loaded.
+  // Set the MQTT.cool Web Client SDK as dependency to be loaded.
   deps: ['js/lib/mqtt.cool.js'],
   callback: function () {
     // Load the entry point for the Hello IoT World application, after
