@@ -1,5 +1,5 @@
 /*
-  MQTT.cool - http://www.lightstreamer.com
+  MQTT.Cool - http://www.lightstreamer.com
   Hello IoT World Demo
 
   Copyright (c) Lightstreamer Srl
@@ -62,7 +62,7 @@ require(["MQTTCool"], function (MQTTCool) {
     rpmData.setValue(0, 1, 0);
     rpmChart.draw(rpmData, rpmOptions);
 
-    // Connect to MQTT.cool.
+    // Connect to MQTT.Cool.
     startMqttConnection(MQTTCool);
   });
 });
@@ -149,15 +149,15 @@ function initFreqSlider(which, topic) {
 }
 
 /**
- * Connects to MQTT.cool and manages subscriptions to telemetry topics.
+ * Connects to MQTT.Cool and manages subscriptions to telemetry topics.
  */
 function startMqttConnection(MQTTCool) {
-  // Connect to the MQTT.cool server.
+  // Connect to the MQTT.Cool server.
   MQTTCool.connect('http://localhost:8080', {
 
     onLsClient: function (lsClient) {
       // Save the reference to the LightstreamerClient instance provided by
-      // the library upon successful connection to MQTT.cool, in order to be
+      // the library upon successful connection to MQTT.Cool, in order to be
       // used later for updating the max bandwidth.
       lightStreamerClient = lsClient;
     },
@@ -166,11 +166,11 @@ function startMqttConnection(MQTTCool) {
       console.log(errorMessage);
     },
 
-    onConnectionSuccess: function (mqttExtenderSession) {
+    onConnectionSuccess: function (mqttCoolSession) {
       // Get a client instance, which will connect to the MQTT broker mapped by
       // the alias "mosquitto". The instance will also be used later to
       // re-subscribe for updating the frequency update.
-      mqttClient = mqttExtenderSession.createClient('mosquitto');
+      mqttClient = mqttCoolSession.createClient('mosquitto');
 
       // Connect to the MQTT broker.
       mqttClient.connect({
