@@ -13,7 +13,7 @@ important, how incoming update flow can be further manipulated in terms of
 bandwidth and frequency management.
 
 In this demo, the Web page submits two MQTT subscriptions to two separate
-topics, in order to receive real-time telemetry metrics of a hypothetical car,
+topics, in order to receive real-time telemetry metrics from a hypothetical car,
 such as Speed and Engine RPM. Upon receiving, data message is displayed by the
 pertinent graphical gauge.
 
