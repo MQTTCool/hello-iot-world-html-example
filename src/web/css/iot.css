@@ -50,12 +50,11 @@
 }
 
 #header {
-  height: 70px;
+  height: 50px;
 }
 
 #logo {
-  background-image: url(../images/logo.png);
-  height: 60px;
+  height: 36px;
   width: 231px;
   float: left;
 }
@@ -88,6 +87,6 @@
 }
 
 #wrap {
-  width: 530px;
+  width: 540px;
   margin: 0 auto;
 }

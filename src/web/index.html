@@ -21,73 +21,75 @@
 
 <html>
 
-<head>
-  <title>Hello IoT World with MQTT.Cool</title>
-  <link rel="stylesheet" type="text/css" href="css/iot.css" />
+  <head>
+    <title>Hello IoT World with MQTT.Cool</title>
+    <link rel="stylesheet" type="text/css" href="css/iot.css" />
 
-  <!-- Load jQuery library -->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Load jQuery library -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-  <!-- Load Google Charts Tools for displaying the gauges -->
-  <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
+    <!-- Load Google Charts Tools for displaying the gauges -->
+    <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
 
-  <!-- Load Prototypes and Script.aculo.us libraries, used for implementing the sliders -->
-  <script src="js/lib/prototype.js" type="text/javascript"></script>
-  <script src="js/lib/scriptaculous.js?load=slider" type="text/javascript"></script>
+    <!-- Load Prototypes and Script.aculo.us libraries, used for implementing the sliders -->
+    <script src="js/lib/prototype.js" type="text/javascript"></script>
+    <script src="js/lib/scriptaculous.js?load=slider" type="text/javascript"></script>
 
-  <!-- Load RequireJS along with the application -->
-  <script data-main="js/index.js" src="http://cdnjs.cloudflare.com/ajax/libs/require.js/1.0.7/require.min.js"></script>
-</head>
+    <!-- Load RequireJS along with the application -->
+    <script data-main="js/index.js" src="http://cdnjs.cloudflare.com/ajax/libs/require.js/1.0.7/require.min.js"></script>
+  </head>
 
-<body>
-  <a href="https://github.com/MQTTCool/MQTT.Cool-example-Hello_IoT_World-client-javascript">
-    <img style="position: absolute; top: 0; right: 0; border: 0; z-index:1" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"
-      alt="Fork me on GitHub"></a>
+  <body>
+    <a href="https://github.com/MQTTCool/MQTT.Cool-example-Hello_IoT_World-client-javascript">
+      <img style="position: absolute; top: 0; right: 0; border: 0; z-index:1" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"
+        alt="Fork me on GitHub"></a>
 
-  <div id="wrap">
-    <div id="header">
-      <div id="logo"></div>
-
-      <!-- Slider for Bandwidth -->
-      <div id="bandwidthSelector">
-        <div class="note">- Use top slider to change max bandwidth</div>
-        <div class="note" style="margin-bottom: 15px">- Use bottom sliders to change subscriptions update frequency</div>
-        <div class="note">Max Bandwidth</div>
-        <div class="slideLine" id="selectBandwidth">
-          <div class="cursor" id="handleSelectBandwidth"> </div>
+    <div id="wrap">
+      <div id="header">
+        <div id="logo">
+          <img src="images/logo.png" />
         </div>
-        <div class="note"><span id="nowBandwidth">unlimited</span> kbps</div>
-      </div>
-    </div>
 
-    <!-- Container for gauges and relative frequency sliders -->
-    <div id="gaugesBoxes">
-      <!-- The Speed gauge container -->
-      <div id="speedGaugeBox" class="gaugeBox">
-        <!-- Container on which the Speed gauge is rendered -->
-        <div id="speedGauge"></div>
-        <!-- The Speed freqency slider -->
-        <div id="speedSlider" class="sliderContainer">
-          <div class="slideLine" id="selectSpeedFrequency">
-            <div class="cursor" id="handleSelectSpeedFrequency"> </div>
+        <!-- Slider for Bandwidth -->
+        <div id="bandwidthSelector">
+          <div class="note">- Use top slider to change max bandwidth</div>
+          <div class="note" style="margin-bottom: 15px">- Use bottom sliders to change subscriptions update frequency</div>
+          <div class="note">Max Bandwidth</div>
+          <div class="slideLine" id="selectBandwidth">
+            <div class="cursor" id="handleSelectBandwidth"> </div>
           </div>
-          <div class="note"><span id="nowSpeedFrequency">unlimited</span> updates/second</div>
+          <div class="note"><span id="nowBandwidth">unlimited</span> kbps</div>
         </div>
       </div>
 
-      <!-- The RPM gauge container -->
-      <div id="rpmGaugeBox" class="gaugeBox">
-        <!-- Container on which the RPM gauge is rendered -->
-        <div id="rpmGauge"></div>
-        <!-- The RPM freqency slider -->
-        <div id="rpmSlider" class="sliderContainer">
-          <div class="slideLine" id="selectRPMFrequency">
-            <div class="cursor" id="handleSelectRPMFrequency"> </div>
+      <!-- Container for gauges and relative frequency sliders -->
+      <div id="gaugesBoxes">
+        <!-- The Speed gauge container -->
+        <div id="speedGaugeBox" class="gaugeBox">
+          <!-- Container on which the Speed gauge is rendered -->
+          <div id="speedGauge"></div>
+          <!-- The Speed frequency slider -->
+          <div id="speedSlider" class="sliderContainer">
+            <div class="slideLine" id="selectSpeedFrequency">
+              <div class="cursor" id="handleSelectSpeedFrequency"> </div>
+            </div>
+            <div class="note"><span id="nowSpeedFrequency">unlimited</span> updates/second</div>
           </div>
-          <div class="note"><span id="nowRPMFrequency">unlimited</span> updates/second</div>
+        </div>
+
+        <!-- The RPM gauge container -->
+        <div id="rpmGaugeBox" class="gaugeBox">
+          <!-- Container on which the RPM gauge is rendered -->
+          <div id="rpmGauge"></div>
+          <!-- The RPM frequency slider -->
+          <div id="rpmSlider" class="sliderContainer">
+            <div class="slideLine" id="selectRPMFrequency">
+              <div class="cursor" id="handleSelectRPMFrequency"> </div>
+            </div>
+            <div class="note"><span id="nowRPMFrequency">unlimited</span> updates/second</div>
+          </div>
         </div>
       </div>
-    </div>
-</body>
+  </body>
 
 </html>

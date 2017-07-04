@@ -1,5 +1,5 @@
 /*
-  MQTT.Cool - http://www.lightstreamer.com
+  MQTT.cool - http://www.lightstreamer.com
   Hello IoT World Demo
 
   Copyright (c) Lightstreamer Srl
@@ -17,24 +17,28 @@
   limitations under the License.
 */
 
-require(["MQTTCool"], function (MQTTCool) {
+var speedChart, speedData, speedOptions;
+var rpmChart, rpmData, rpmOptions;
+var lightStreamerClient;
+var mqttClient;
+require(['MQTTCool'], function(MQTTCool) {
   // Load package for gauges.
   google.charts.load('current', { 'packages': ['gauge'] });
 
   // Set the onload callback, which initializes gauges and starts the
   // connection to the MQTT extender.
-  google.charts.setOnLoadCallback(function () {
-    // Initalize bandwidth sliders.
+  google.charts.setOnLoadCallback(function() {
+    // Initialize bandwidth sliders.
     initBandwidthSlider();
 
     // Initialize frequency sliders for Speed and RPM.
-    initFreqSlider("Speed", "telemetry/speed");
-    initFreqSlider("RPM", "telemetry/rpm");
+    initFreqSlider('Speed', 'telemetry/speed');
+    initFreqSlider('RPM', 'telemetry/rpm');
 
     // Speed gauge initialization.
     speedData = google.visualization.arrayToDataTable([
       ['Label', 'Value'],
-      ['Speed', 0],
+      ['Speed', 0]
     ]);
     speedOptions = {
       redFrom: 210, redTo: 250,
@@ -42,7 +46,8 @@ require(["MQTTCool"], function (MQTTCool) {
       minorTicks: 10,
       max: 300
     };
-    speedChart = new google.visualization.Gauge(document.getElementById('speedGauge'));
+    speedChart = new google.visualization.Gauge(
+      document.getElementById('speedGauge'));
     speedData.setValue(0, 1, 0);
     speedChart.draw(speedData, speedOptions);
 
@@ -58,7 +63,8 @@ require(["MQTTCool"], function (MQTTCool) {
       minorTicks: 10,
       max: 25000
     };
-    rpmChart = new google.visualization.Gauge(document.getElementById('rpmGauge'));
+    rpmChart = new google.visualization.Gauge(
+      document.getElementById('rpmGauge'));
     rpmData.setValue(0, 1, 0);
     rpmChart.draw(rpmData, rpmOptions);
 
@@ -68,7 +74,7 @@ require(["MQTTCool"], function (MQTTCool) {
 });
 
 /**
- * Initialize the Bandwidth slider.
+ * Initialize the bandwidth slider.
  */
 function initBandwidthSlider() {
   // Max allowed bandwidth, in Kbps/s.
@@ -81,34 +87,40 @@ function initBandwidthSlider() {
   }
 
   // The span id to be updated
-  var spanId = "nowBandwidth";
+  var spanId = 'nowBandwidth';
 
-  var bwslider = new Control.Slider('handleSelectBandwidth', 'selectBandwidth', {
-    sliderValue: maxBandVal, values: values, step: 0.5, increment: 0.5, range: $R(0.5, maxBandVal),
+  // Insert the bandwidth slider
+  new Control.Slider('handleSelectBandwidth', 'selectBandwidth', {
+    sliderValue: maxBandVal,
+    values: values,
+    step: 0.5,
+    increment: 0.5,
+    range: $R(0.5, maxBandVal),
 
-    onSlide: function (v) {
+    onSlide: function(v) {
       updateSlider(v, maxBandVal, spanId);
     },
 
-    onChange: function (v) {
+    onChange: function(v) {
       var val = updateSlider(v, maxBandVal, spanId);
       if (lightStreamerClient) {
         // If max bandwidth is selected, pass the "unlimited" value.
         if (val == maxBandVal) {
-          val = "unlimited";
+          val = 'unlimited';
         }
-        // Update the max bandwidth through the LightStreamerClient instance.
+        // Update the max bandwidth through the LightStreamerClient
+        // instance.
         lightStreamerClient.connectionOptions.setMaxBandwidth(val);
       }
     }
   });
-};
+}
 
 /**
- * Initialize a Frequency slider
+ * Initialize a frequency slider
  *
  * @param {string} which - The name of the slider to initialize.
- * @param {string} topic - The topic to re-susbcribe to upon changing.
+ * @param {string} topic - The topic to re-subscribe to upon changing.
  */
 function initFreqSlider(which, topic) {
   // Max allowed frequency.
@@ -121,52 +133,59 @@ function initFreqSlider(which, topic) {
   }
 
   // The span id to be updated.
-  var spanId = "now" + which + "Frequency";
+  var spanId = 'now' + which + 'Frequency';
 
-  var freqSlider = new Control.Slider('handleSelect' + which + 'Frequency', 'select' + which + 'Frequency', {
-    sliderValue: maxFreqVal, values: freqValues, step: 0.1, increment: 0.1, range: $R(0.1, maxFreqVal),
+  // Insert the frequency slider
+  new Control.Slider('handleSelect' + which + 'Frequency', 'select' +
+    which + 'Frequency', {
+      sliderValue: maxFreqVal,
+      values: freqValues,
+      step: 0.1,
+      increment: 0.1,
+      range: $R(0.1, maxFreqVal),
 
-    onSlide: function (v) {
-      updateSlider(v, maxFreqVal, spanId);
-    },
+      onSlide: function(v) {
+        updateSlider(v, maxFreqVal, spanId);
+      },
 
-    onChange: function (v) {
-      var val = updateSlider(v, maxFreqVal, spanId);
-      if (lightStreamerClient) {
+      onChange: function(v) {
+        var val = updateSlider(v, maxFreqVal, spanId);
         // Prepare basic subscriptions options.
         var subOptions = {};
 
         // Set the property to specify the max frequency rate.
         if (val != maxFreqVal) {
-          subOptions['requestedMaxFrequency'] = val;
+          subOptions['maxFrequency'] = val;
         }
 
         // Subscribe again to the same topic, with updated options.
         mqttClient.subscribe(topic, subOptions);
+
       }
-    }
-  });
+    });
 }
 
 /**
  * Connects to MQTT.Cool and manages subscriptions to telemetry topics.
+ *
+ * @param {MQTTCool} MQTTCool - The reference to the MQTTCool module.
  */
 function startMqttConnection(MQTTCool) {
   // Connect to the MQTT.Cool server.
   MQTTCool.connect('http://localhost:8080', {
 
-    onLsClient: function (lsClient) {
+    onLsClient: function(lsClient) {
       // Save the reference to the LightstreamerClient instance provided by
       // the library upon successful connection to MQTT.Cool, in order to be
       // used later for updating the max bandwidth.
       lightStreamerClient = lsClient;
     },
 
-    onConnectionFailure: function (errorCode, errorMessage) {
+    onConnectionFailure: function(errorCode, errorMessage) {
       console.log(errorMessage);
     },
 
-    onConnectionSuccess: function (mqttCoolSession) {
+    onConnectionSuccess: function(mqttCoolSession) {
       // Get a client instance, which will connect to the MQTT broker mapped by
       // the alias "mosquitto". The instance will also be used later to
       // re-subscribe for updating the frequency update.
@@ -174,31 +193,33 @@ function startMqttConnection(MQTTCool) {
 
       // Connect to the MQTT broker.
       mqttClient.connect({
-        onSuccess: function () {
+        onSuccess: function() {
           // Upon successful connection, subscribe to telemetry topics.
           mqttClient.subscribe('telemetry/speed');
           mqttClient.subscribe('telemetry/rpm');
         },
 
-        onFailure: function (response) {
-          console.log("Connection failure: " + response);
+        onFailure: function(response) {
+          console.log(response.errorMessage + ' [code=' + response.errorCode +
+            ']');
         }
       });
 
       // Callback invoked if the connection to the target MQTT broker is lost.
-      mqttClient.onConnectionLost = function (response) {
-        console.log("Connection lost:" + response.errorMessage);
-      }
+      mqttClient.onConnectionLost = function(response) {
+        console.log('Connection lost:' + response.errorMessage);
+      };
 
       // Callback invoked upon receiving a message.
-      mqttClient.onMessageArrived = function (message) {
+      mqttClient.onMessageArrived = function(message) {
         // Get the message topic to retrieve the pertinent gauge.
         var dest = message.destinationName;
         var tok = dest.split('/', 2);
         var gauge = tok[1];
 
-        // Transform metric to int values, as required by the Google Chart Tools.
-        var metric = parseInt(parseInt(message.payloadString));
+        // Get and transform the received payload into an integer value, which
+        // can be then managed by the Google Chart Tools.
+        var metric = parseInt(message.payloadString);
 
         // Update the target gauge.
         switch (gauge) {
@@ -232,7 +253,7 @@ function updateSlider(currValue, maxValue, id) {
   var val = Math.round(currValue * 100) / 100;
   var valStr = String(val);
   if (val == maxValue) {
-    valStr = "unlimited";
+    valStr = 'unlimited';
   }
   document.getElementById(id).innerHTML = valStr;
   return val;
