@@ -155,12 +155,6 @@ metrics.
 
 * [MQTT.Cool - Basic Chat Demo - HTL Clienet](https://github.com/MQTTCool/MQTT.Cool-example-Chat-client-javascript)
 
-### Related Projects
-
-* [Lightstreamer - Race Telemetry Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-RaceTelemetry-client-javascript)
-
-<!-- END RELATED_ENTRIES -->
-
 ## MQTT.Cool Compatibility Notes
 
 * Compatible with MQTT.Cool SDK for Web Client version 1.0.0 or newer.
