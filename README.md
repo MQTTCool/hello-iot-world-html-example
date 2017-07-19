@@ -100,7 +100,7 @@ $ mvn package appaassembler:assemble
 ```
 
 After that, all the resources needed to launch the simulator are placed under
-new newly created `feed` folder.
+the newly created `feed` folder.
 
 ## Configure
 
