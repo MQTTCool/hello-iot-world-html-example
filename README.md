@@ -93,7 +93,7 @@ contents of `src/web` of this project.
 ## Build
 
 Assuming that `maven` is installed on you machine, build the feed simulator and
-generate the launch scripts executing the following command:
+generate the launch scripts by executing the following command:
 
 ```sh
 $ mvn package appaassembler:assemble
