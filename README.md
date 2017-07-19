@@ -153,7 +153,7 @@ metrics.
 
 <!-- START RELATED_ENTRIES -->
 
-* [MQTT.Cool - Basic Chat Demo - HTL Clienet](https://github.com/MQTTCool/MQTT.Cool-example-Chat-client-javascript)
+* [MQTT.Cool - Basic Chat Demo - HTML Client](https://github.com/MQTTCool/MQTT.Cool-example-Chat-client-javascript)
 
 ## MQTT.Cool Compatibility Notes
 
