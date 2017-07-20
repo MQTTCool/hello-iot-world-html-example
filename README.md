@@ -127,8 +127,9 @@ broker you are going to use.
 
 ## Launch
 
-Open your browser and point it to [http://localhost:8080/Hello_IoT_World](), or
-to the address according to the host and/or the name of the folder where you
+Open your browser and point it to
+[http://localhost:8080/Hello_IoT_World](http://localhost:8080/Hello_IoT_World),
+or to the address according to the host and/or the name of the folder where you
 deployed the project.
 
 From the `feed` folder, run the feed simulator application to publish simulated
