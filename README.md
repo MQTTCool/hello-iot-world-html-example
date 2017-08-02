@@ -105,7 +105,8 @@ the newly created `feed` folder.
 ## Configure
 
 The demo assumes that the MQTT.Cool server is launched from localhost, but if
-you need to target a different server, search in `web/js/index.js` this line:
+you need to target a different server, search in `src/web/js/index.js` this
+line:
 
 ```js
 mqttcool.openSession('http://localhost:8080', {
@@ -116,7 +117,8 @@ and change it accordingly.
 Further, the demo will look for the **mosquitto** alias, which is predefined in
 the default MQTT.Cool configuration. Once more, if you need to target a
 different MQTT broker, and provided that relative connection parameters are
-already defined as shown above, modify the following line in `web/js/index.js`:
+already defined as shown above, modify the following line in
+`src/web/js/index.js`:
 
 ```js
 mqttClient = mqttCoolSession.createClient('mosquitto');
@@ -160,4 +162,3 @@ metrics.
 
 * Compatible with MQTT.Cool SDK for Web Client version 1.0.0 or newer.
 * Compatible with MQTT.Cool since version 1.0 or newer.
-
