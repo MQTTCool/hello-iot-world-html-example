@@ -135,7 +135,7 @@ or to the address according to the host and/or the name of the folder where you
 deployed the project.
 
 From the `feed` folder, run the feed simulator application to publish simulated
-telemetry metrics:
+telemetry data:
 
 * On Linux systems;
 
@@ -160,5 +160,5 @@ metrics.
 
 ## MQTT.Cool Compatibility Notes
 
-* Compatible with MQTT.Cool SDK for Web Client version 1.0.0 or newer.
+* Compatible with MQTT.Cool SDK for Web Clients version 1.0.0 or newer.
 * Compatible with MQTT.Cool since version 1.0 or newer.
