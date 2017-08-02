@@ -178,8 +178,8 @@ function startMqttConnection() {
       lightStreamerClient = lsClient;
     },
 
-    onConnectionFailure: function(errorCode, errorMessage) {
-      console.log(errorMessage);
+    onConnectionFailure: function(errorType, errorCode, errorMessage) {
+      console.log('MQTT.Cool connection failure ' + errorType);
     },
 
     onConnectionSuccess: function(mqttCoolSession) {
