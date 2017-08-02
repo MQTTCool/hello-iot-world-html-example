@@ -24,7 +24,7 @@ data and publishes them to the target topics at a fixed interval (100 ms).
 
 The demo shows how MQTT.Cool enables an *end-to-end* connection between the Web
 page and the MQTT broker, as it takes the role of real MQTT server proxy by
-acting as an intermediary for requests coming form the client and targeted to
+acting as an intermediary for requests coming from the client and targeted to
 the broker (in this case, the subscriptions to telemetry topics), as well as
 for responses (subscription acks) and Application Messages (telemetry data)
 coming from the broker and directed to the client.
