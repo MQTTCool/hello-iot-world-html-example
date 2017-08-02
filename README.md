@@ -19,7 +19,7 @@ such as Speed and Engine RPM. Upon receiving, data message is displayed by the
 pertinent graphical gauge.
 
 Real-time telemetry updates are delivered by a random feed simulator, which is a
-pure MQTT Java client that connects to a MQTT broker, generates simulated
+pure MQTT Java client that connects to an MQTT broker, generates simulated
 data and publishes them to the target topics at a fixed interval (100 ms).
 
 The demo shows how MQTT.Cool enables an *end-to-end* connection between the Web
