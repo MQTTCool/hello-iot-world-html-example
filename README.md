@@ -161,4 +161,4 @@ metrics.
 ## MQTT.Cool Compatibility Notes
 
 * Compatible with MQTT.Cool SDK for Web Clients version 1.0.0 or newer.
-* Compatible with MQTT.Cool since version 1.0 or newer.
+* Compatible with MQTT.Cool since version 1.0.0 b1 or newer.
