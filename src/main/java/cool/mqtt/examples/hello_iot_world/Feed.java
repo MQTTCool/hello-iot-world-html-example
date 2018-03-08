@@ -33,7 +33,7 @@ public class Feed implements Runnable {
 
   /**
    * Utility method for converting a long value into a string representation to be
-   * used as message payload.
+   * used as the message payload.
    *
    * @param value
    * @return
@@ -83,7 +83,7 @@ public class Feed implements Runnable {
   }
 
   /**
-   * Calculate and returns the simulated engine RPM.
+   * Calculates and returns the simulated engine RPM.
    *
    * @return the RPM
    */
