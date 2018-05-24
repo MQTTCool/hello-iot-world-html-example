@@ -140,17 +140,19 @@ telemetry data:
 * On Linux systems;
 
   ```sh
-  $ sh bin/startFeed
+  $ sh bin/startFeed <url_broker>
   ```
 
 * On Window systems:
 
   ```sh
-  $ bin\startFeed.bat
+  $ bin\startFeed.bat <url_broker>
   ```
 
-and immediately the gauges reflect updates according to the received real-time
-metrics.
+where `url_broker` is the url of the MQTT broker relative to the alias in use.
+
+Immediately, the gauges in the web page reflect updates according to the
+received real-time metrics.
 
 ## See Also
 
