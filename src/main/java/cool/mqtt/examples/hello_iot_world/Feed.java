@@ -103,9 +103,15 @@ public class Feed implements Runnable {
   }
 
   public static void main(String[] args) throws MqttException {
-    // Create a client connection to the MQTT broker running on localhost
-    // and listening on TCP port 1883
-    MqttClient client = new MqttClient("tcp://localhost:1883", "telemetry-feed");
+    if (args.length == 0) {
+      System.err.println("Please specifiy a validr broker url");
+      System.exit(1);
+    }
+
+    // Create a client connection to the MQTT broker running at the specified
+    // url
+    String brokerUrl = args[0];
+    MqttClient client = new MqttClient(brokerUrl, "telemetry-feed");
     client.connect();
 
     // Once connected, generate and publish simulated telemetry data every 100 ms
