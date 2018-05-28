@@ -27,8 +27,12 @@ public class Feed implements Runnable {
   /** Reference to the MqttClient instance connected to the MQTT broker */
   private MqttClient client;
 
-  Feed(MqttClient client) {
+  /** Reference to the scheduler */
+  private ScheduledExecutorService executor;
+
+  Feed(ScheduledExecutorService executor, MqttClient client) {
     this.client = client;
+    this.executor = executor;
   }
 
   /**
@@ -53,6 +57,8 @@ public class Feed implements Runnable {
       client.publish("telemetry/rpm", toBytes(rpm), 0, false);
     } catch (MqttException e) {
       e.printStackTrace();
+      // Stop schedulation in case of any issues.
+      executor.shutdown();
     }
   }
 
@@ -116,6 +122,6 @@ public class Feed implements Runnable {
 
     // Once connected, generate and publish simulated telemetry data every 100 ms
     ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
-    executor.scheduleAtFixedRate(new Feed(client), 0, 100, TimeUnit.MILLISECONDS);
+    executor.scheduleAtFixedRate(new Feed(executor, client), 0, 100, TimeUnit.MILLISECONDS);
   }
 }
