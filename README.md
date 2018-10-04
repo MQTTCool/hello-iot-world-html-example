@@ -58,9 +58,9 @@ follows these steps.
 * As prerequisite, this demo needs an up and running MQTT broker. You can choose
 whatever MQTT broker you prefer, or may also use one of the available public
 broker (an up-to-date list is maintained at
-[https://github.com/mqtt/mqtt.github.io/wiki/public_brokers]()).
-* Configure an MQTT.Cool instance. Please refer to Lightstreamer web site
-[download page](http://download.lightstreamer.com/) to find the MQTT.Cool
+[https://github.com/mqtt/mqtt.github.io/wiki/public_brokers](https://github.com/mqtt/mqtt.github.io/wiki/public_brokers)).
+* Configure an MQTT.Cool instance. Please refer to mqtt.cool web site
+[download page](https://mqtt.cool/download/latest-server) to find the MQTT.Cool
 download package. MQTT.Cool comes with a set of predefined configurations for
 connecting with local MQTT server instances, as well as with the most common
 publicly accessible brokers. If you want to provide a new custom configuration,
