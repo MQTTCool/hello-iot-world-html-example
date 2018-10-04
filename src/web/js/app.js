@@ -169,7 +169,7 @@ function initFreqSlider(which, topic) {
  */
 function startMqttConnection() {
   // Connect to the MQTT.Cool server.
-  mqttcool.openSession('http://localhost:8080', {
+  mqttcool.openSession('http://localhost:8080', 'demouser', '', {
 
     onLsClient: function(lsClient) {
       // Save the reference to the LightstreamerClient instance provided by
