@@ -3,7 +3,10 @@
 The **Hello IoT World Demo** is a simple real-time telemetry application based
 on MQTT.Cool.
 
-![screenshot](screen-large.png)
+## Live Demo
+
+[![Live Demo](screen-large.png)](https://demos.mqtt.cool/hello-iot-world/index.html)
+
 
 ## Details
 
@@ -58,7 +61,7 @@ follows these steps.
 * As prerequisite, this demo needs an up and running MQTT broker. You can choose
 whatever MQTT broker you prefer, or may also use one of the available public
 broker (an up-to-date list is maintained at
-[https://github.com/mqtt/mqtt.github.io/wiki/public_brokers](https://github.com/mqtt/mqtt.github.io/wiki/public_brokers)).
+https://github.com/mqtt/mqtt.github.io/wiki/public_brokers).
 * Configure an MQTT.Cool instance. Please refer to mqtt.cool web site
 [download page](https://mqtt.cool/download/latest-server) to find the MQTT.Cool
 download package. MQTT.Cool comes with a set of predefined configurations for
@@ -156,9 +159,7 @@ received real-time metrics.
 
 ## See Also
 
-<!-- START RELATED_ENTRIES -->
-
-* [MQTT.Cool - Basic Chat Demo - HTML Client](https://github.com/MQTTCool/MQTT.Cool-example-Chat-client-javascript)
+* [Check out all other demos on MQTT.Cool site](https://mqtt.cool/demos)
 
 ## MQTT.Cool Compatibility Notes
 
