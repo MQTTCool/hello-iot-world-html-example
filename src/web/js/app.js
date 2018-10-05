@@ -1,5 +1,6 @@
 /*
-  MQTT.Cool - http://www.lightstreamer.com
+  MQTT.Cool - https://mqtt.cool
+
   Hello IoT World Demo
 
   Copyright (c) Lightstreamer Srl
