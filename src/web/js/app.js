@@ -22,6 +22,9 @@ var rpmChart, rpmData, rpmOptions;
 var lightStreamerClient;
 var mqttClient;
 
+// Target MQTT.Cool address. Change it with if required.
+const MQTT_COOL_URL = 'http://localhost:8080';
+
 // Load package for gauges.
 google.charts.load('current', { 'packages': ['gauge'] });
 
@@ -169,7 +172,7 @@ function initFreqSlider(which, topic) {
  */
 function startMqttConnection() {
   // Connect to the MQTT.Cool server.
-  mqttcool.openSession('http://localhost:8080', 'demouser', '', {
+  mqttcool.openSession(MQTT_COOL_URL, 'demouser', '', {
 
     onLsClient: function(lsClient) {
       // Save the reference to the LightstreamerClient instance provided by
