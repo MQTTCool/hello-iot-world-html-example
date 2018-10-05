@@ -1,3 +1,20 @@
+/*
+ * MQTT.Cool - https://mqtt.cool
+ * 
+ * Hello IoT World Demo
+ *
+ * Copyright (c) Lightstreamer Srl
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
 package cool.mqtt.examples.hello_iot_world;
 
 import org.eclipse.paho.client.mqttv3.*;
@@ -39,8 +56,8 @@ public class Feed implements Runnable {
    * Utility method for converting a long value into a string representation to be
    * used as the message payload.
    *
-   * @param value
-   * @return
+   * @param value a long
+   * @return The resultant byte array
    */
   static byte[] toBytes(long value) {
     return String.valueOf(value).getBytes();
@@ -65,7 +82,7 @@ public class Feed implements Runnable {
   /**
    * Calculates and returns the simulated speed.
    *
-   * @return the speed
+   * @return the simulated speed
    */
   long simulateSpeed() {
     // Simulate the speed variation.
@@ -91,7 +108,8 @@ public class Feed implements Runnable {
   /**
    * Calculates and returns the simulated engine RPM.
    *
-   * @return the RPM
+   * @param speedKmH the input speed
+   * @return the simulated RPM
    */
   long simulateRPM(long speedKmH) {
     // Calculate current RPM.
