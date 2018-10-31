@@ -11,7 +11,7 @@ on MQTT.Cool.
 ## Details
 
 The **Hello IoT World Demo** uses the
-*[MQTT.Cool Web Client API](https://mqtt.cool/res/mqtt.cool-web-client-sdk/1.2.0/doc/index.html)*
+*[MQTT.Cool Web Client API](https://mqtt.cool/docs/mqtt.cool-web-client-sdk/api/index.html)*
 to show how MQTT.Cool can be used to send real-time telemetry data through the
 Web and, very important, how incoming update flow can be further manipulated in
 terms of bandwidth and frequency management.
