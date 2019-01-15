@@ -1,4 +1,4 @@
-# MQTT.Cool - Hello IoT World Demo - HTML Client
+# Hello IoT World Demo - HTML Client
 
 The **Hello IoT World Demo** is a simple real-time telemetry application based
 on MQTT.Cool.
