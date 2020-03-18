@@ -171,4 +171,4 @@ received real-time metrics.
 ## MQTT.Cool Compatibility Notes
 
 * Compatible with MQTT.Cool SDK for Web Clients version 1.0.0 or newer.
-* Compatible with MQTT.Cool version 2.0.0.
+* Compatible with MQTT.Cool since version 2.0.0 or newer.
